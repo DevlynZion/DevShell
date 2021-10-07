@@ -34,8 +34,7 @@ namespace DevShell.Common.ConsoleUI
 
         private void DrawUpdate()
         {
-            Console.CursorLeft = cursorLeft;
-            Console.CursorTop = cursorTop;
+            PositionCursor();
 
             var percentage = Math.Round((CurrentValue * 100) / MaxValue, 0);
 
@@ -43,6 +42,14 @@ namespace DevShell.Common.ConsoleUI
 
             for (int k = Console.CursorLeft; k < Console.WindowWidth; k++)
                 Console.Write(" ");
+
+            PositionCursor();
+        }
+
+        private void PositionCursor()
+        {
+            Console.CursorLeft = cursorLeft;
+            Console.CursorTop = cursorTop;
         }
 
     }
