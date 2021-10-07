@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CADEnviroment\ClearCoreModules.cs" />
+    <Compile Include="CADEnviroment\ClearExtensions.cs" />
+    <Compile Include="DevEnviroment\OpenVS.cs" />
     <Compile Include="Output\WriteCenterText.cs" />
     <Compile Include="Output\WriteHeader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,8 +60,6 @@
       <Name>DevShell.Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Test\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
