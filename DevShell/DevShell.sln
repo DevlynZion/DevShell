@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevShell.Console", "DevShel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevShell.Cmdlets", "DevShell.Cmdlets\DevShell.Cmdlets.csproj", "{AFE3D01F-A76D-46C7-ACA4-7693B43EE67B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevShell.Common", "DevShell.Common\DevShell.Common.csproj", "{93EED108-DE4C-4D47-B5CC-98E289FE8DBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AFE3D01F-A76D-46C7-ACA4-7693B43EE67B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFE3D01F-A76D-46C7-ACA4-7693B43EE67B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFE3D01F-A76D-46C7-ACA4-7693B43EE67B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93EED108-DE4C-4D47-B5CC-98E289FE8DBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93EED108-DE4C-4D47-B5CC-98E289FE8DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93EED108-DE4C-4D47-B5CC-98E289FE8DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93EED108-DE4C-4D47-B5CC-98E289FE8DBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
