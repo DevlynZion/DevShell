@@ -39,7 +39,10 @@ namespace DevShell.Common.ConsoleUI
 
             var percentage = Math.Round((CurrentValue * 100) / MaxValue, 0);
 
-            Console.WriteLine(string.Format("{0} [{1} %] {2}", PreText, percentage, PostText));
+            Console.Write(string.Format("{0} [{1} %] {2}", PreText, percentage, PostText));
+
+            for (int k = Console.CursorLeft; k < Console.WindowWidth; k++)
+                Console.Write(" ");
         }
 
     }
