@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CADEnviroment\ClearCoreModules.cs" />
+    <Compile Include="CADEnviroment\ClearExtensions.cs" />
+    <Compile Include="DevEnviroment\OpenVS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
