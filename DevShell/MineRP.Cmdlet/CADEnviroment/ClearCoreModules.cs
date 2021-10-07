@@ -7,10 +7,10 @@ using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevShell.Cmdlets.CADEnviroment
+namespace MineRP.Cmdlet.CADEnviroment
 {
     [Cmdlet(VerbsCommon.Clear, "CoreModules")]
-    public class ClearCoreModules : Cmdlet
+    public class ClearCoreModules : System.Management.Automation.Cmdlet
     {
         private const string CAFMODULES_FOLDER = @"MineRP\CAFModules";
 

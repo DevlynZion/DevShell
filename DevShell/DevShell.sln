@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevShell.Cmdlets", "DevShel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevShell.Common", "DevShell.Common\DevShell.Common.csproj", "{93EED108-DE4C-4D47-B5CC-98E289FE8DBB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cmdlets", "Cmdlets", "{96DE67E6-7A63-43B4-B05E-A308DAA0F087}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineRP.Cmdlet", "MineRP.Cmdlet\MineRP.Cmdlet.csproj", "{C9C31E7B-0BF3-44A1-ABC7-938AFD5F3BB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +31,17 @@ Global
 		{93EED108-DE4C-4D47-B5CC-98E289FE8DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93EED108-DE4C-4D47-B5CC-98E289FE8DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93EED108-DE4C-4D47-B5CC-98E289FE8DBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C31E7B-0BF3-44A1-ABC7-938AFD5F3BB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C31E7B-0BF3-44A1-ABC7-938AFD5F3BB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C31E7B-0BF3-44A1-ABC7-938AFD5F3BB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C31E7B-0BF3-44A1-ABC7-938AFD5F3BB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AFE3D01F-A76D-46C7-ACA4-7693B43EE67B} = {96DE67E6-7A63-43B4-B05E-A308DAA0F087}
+		{C9C31E7B-0BF3-44A1-ABC7-938AFD5F3BB6} = {96DE67E6-7A63-43B4-B05E-A308DAA0F087}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9D048C6B-700E-4B07-8976-205B64F9C75B}

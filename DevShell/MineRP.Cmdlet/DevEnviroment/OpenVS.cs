@@ -6,10 +6,10 @@ using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevShell.Cmdlets.DevEnviroment
+namespace MineRP.Cmdlet.DevEnviroment
 {
     [Cmdlet(VerbsCommon.Open, "VS")]
-    public class OpenVS : Cmdlet
+    public class OpenVS : System.Management.Automation.Cmdlet
     {
         private const string VISUAL_STUDIO = @"C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\devenv.exe";
 

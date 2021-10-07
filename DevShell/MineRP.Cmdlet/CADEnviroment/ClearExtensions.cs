@@ -6,10 +6,10 @@ using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevShell.Cmdlets.CADEnviroment
+namespace MineRP.Cmdlet.CADEnviroment
 {
     [Cmdlet(VerbsCommon.Clear, "Extensions")]
-    public class ClearExtensions : Cmdlet
+    public class ClearExtensions : System.Management.Automation.Cmdlet
     {
         private const string EXTENSIONS_FOLDER = @"C:\Program Files\MineRP\Explorer 4\Extensions\";
 
