@@ -44,6 +44,7 @@
     <Compile Include="ConsoleUI\ConsoleMenu.cs" />
     <Compile Include="ConsoleUI\ConsoleMenuItem.cs" />
     <Compile Include="ConsoleUI\ConsoleMenuSeperator.cs" />
+    <Compile Include="ConsoleUI\ProgressMeter.cs" />
     <Compile Include="Output\ConsoleHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

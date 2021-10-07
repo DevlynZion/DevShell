@@ -65,6 +65,6 @@ namespace DevShell.Common.Output
             }
             Console.WriteLine($"╚{borderLine}╝");
             Console.ResetColor();
-        }
+        }        
     }
 }
