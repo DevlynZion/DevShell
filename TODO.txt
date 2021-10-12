@@ -1,0 +1,21 @@
+Utilities - support functions to help automation
+=========
+
+
+Tasks
+=====
+* TaskList - Allow to select and kill processes
+
+
+
+Reports - Give reports on things
+=======
+
+
+
+
+
+Use Cases for Dev Shell
+======================
+* Give custom package to people to fix things
+* Help automate work functions
