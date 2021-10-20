@@ -52,5 +52,13 @@ namespace DevShell.Common.ConsoleUI
             Console.CursorTop = cursorTop;
         }
 
+        public void Done()
+        {
+            PositionCursor();
+            Console.WriteLine(); 
+            PositionCursor();
+            Console.WriteLine("Done.");
+        }
+
     }
 }
