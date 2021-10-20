@@ -57,6 +57,9 @@
     <None Include="Script\Alias.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Script\EnvironmentVariables.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Script\ImportModules.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
