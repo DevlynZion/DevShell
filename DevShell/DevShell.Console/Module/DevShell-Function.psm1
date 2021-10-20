@@ -1,4 +1,4 @@
-﻿
+﻿#Don't need any more'
 function DevShell-Add-Alias
 {
 	Param($alias, $value)

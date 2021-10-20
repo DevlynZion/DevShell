@@ -2,5 +2,5 @@
 Write-Host "Alias"
 Write-Host "-----"
 
-DevShell-Add-Alias "mt2d" "C:\Users\dvanderwalt\OneDrive - MineRP\Desktop\MergeMainMaster.bat"
-DevShell-Add-Alias "np" "C:\Program Files\Notepad++\notepad++.exe"
+DS-AddAlias "mt2d" "C:\Users\dvanderwalt\OneDrive - MineRP\Desktop\MergeMainMaster.bat"
+DS-AddAlias "np" "C:\Program Files\Notepad++\notepad++.exe"
