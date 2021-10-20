@@ -9,8 +9,23 @@ namespace DevShell.Common.ConsoleUI
 {
     public class ConsoleTableSelect
     {
-        public DataTable Data { get; set; }
+        public DataTable Data 
+        { 
+            get 
+            { 
+                return data; 
+            }  
+            set 
+            { 
+                data = value;
+                CalculateColumnLength();
+            } 
+        }
+        public int NumberOfRows { get; set; }
+        public bool SelectWrapList { get; set; }
 
+
+        private DataTable data;
         private int cursorLeft;
         private int cursorTop;
         private bool itemIsSelcted;
@@ -18,13 +33,20 @@ namespace DevShell.Common.ConsoleUI
         private int maxItemShift;
         private int itemsPerPages;
         private int itemStart;
+        private List<int> columnsLength;
+        private int columnTotal;
 
         public ConsoleTableSelect(DataTable data)
         {
-            Data = data;
             itemIsSelcted = false;
             selectedItemIndex = 0;
             itemStart = 0;
+            columnsLength = new List<int>();
+            columnTotal = 0;
+
+            NumberOfRows = 20;
+
+            Data = data;
         }
 
         public int GetSelection()
@@ -34,8 +56,8 @@ namespace DevShell.Common.ConsoleUI
             int bottomOffset = 0;
             ConsoleKeyInfo kb;
 
-            itemsPerPages = 20;/*Console.WindowHeight - cursorTop - 3*/;
-            maxItemShift = Data.Rows.Count - itemsPerPages; // Not sure what the right Calculation is
+            itemsPerPages = NumberOfRows;
+            maxItemShift = Data.Rows.Count - itemsPerPages; // Not sure what the right Calculation is, but seems to be working
 
             Console.CursorVisible = false;
 
@@ -59,12 +81,10 @@ namespace DevShell.Common.ConsoleUI
             Console.CursorTop = cursorTop;
         }
 
-        private void DrawUpdate()
+        private void CalculateColumnLength()
         {
-            PositionCursor();
-
             var columns = Data.Columns;
-            var columnsLength = new List<int>();
+            columnsLength = new List<int>();
 
             foreach (DataColumn dataColumn in columns)
             {
@@ -81,14 +101,20 @@ namespace DevShell.Common.ConsoleUI
                 columnsLength.Add(colLength);
             }
 
-            var columnTotal = columnsLength.Sum();
+            columnTotal = columnsLength.Sum();
+        }
+
+        private void DrawUpdate()
+        {
+            PositionCursor();
+
+            var columns = Data.Columns;
 
             if (Console.WindowWidth < columnTotal)
             {
                 Console.WriteLine("Can't fit table into console.");
                 return;
             }
-
 
             var spaceLeft = Console.WindowWidth - columnTotal;
             var spaceToAdd = spaceLeft / columns.Count;
@@ -142,36 +168,56 @@ namespace DevShell.Common.ConsoleUI
             switch (pressedKey)
             {
                 case ConsoleKey.UpArrow:
-                    selectedItemIndex = (selectedItemIndex == 0) ? Data.Rows.Count - 1 : selectedItemIndex - 1;
-                    if (selectedItemIndex <= itemStart + itemsPerPages)
-                    {
-                        itemStart--;
 
-                        if (itemStart == 0)
-                        {
-                            itemStart = maxItemShift;
-                            selectedItemIndex = Data.Rows.Count - 1;
-                        }
+                    if (selectedItemIndex == 0)
+                    {
+                        selectedItemIndex = Data.Rows.Count - 1;
+                        itemStart = maxItemShift;
+                    }
+                    else
+                    {
+                        selectedItemIndex--;                        
+
+                        if (selectedItemIndex < itemStart)
+                            itemStart--;
                     }
                     break;
 
                 case ConsoleKey.DownArrow:
-                    selectedItemIndex = (selectedItemIndex == Data.Rows.Count - 1) ? 0 : selectedItemIndex + 1;
-                    if (selectedItemIndex >= itemStart + itemsPerPages)
+
+                    if (selectedItemIndex == Data.Rows.Count - 1)
                     {
-                        itemStart++;
+                        selectedItemIndex = 0;
+                        itemStart = 0;
+                    }
+                    else
+                    {
+                        selectedItemIndex++;
+
+                        if(selectedItemIndex == itemStart + itemsPerPages)
+                            itemStart++;
 
                         if (itemStart > maxItemShift)
-                        {
-                            itemStart = 0;
-                            selectedItemIndex = 0;
-                        }
+                            itemStart = maxItemShift;
                     }
-                    else if (selectedItemIndex >= itemStart + itemsPerPages) // TODO: fix not right, not wraping to top again
-                    {
-                        itemStart = 0;
-                        selectedItemIndex = 0;
-                    }
+                    break;
+
+                case ConsoleKey.Home:
+                    selectedItemIndex = 0;
+                    itemStart = 0;
+                    break;
+
+                case ConsoleKey.End:
+                    selectedItemIndex = Data.Rows.Count - 1;
+                    itemStart = maxItemShift;
+                    break;
+
+                case ConsoleKey.PageDown:
+                    // TODO: Implement Page Down
+                    break;
+
+                case ConsoleKey.PageUp:
+                    // TODO: Implement Page Up
                     break;
 
                 case ConsoleKey.Enter:

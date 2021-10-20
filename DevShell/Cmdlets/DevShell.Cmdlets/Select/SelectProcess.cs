@@ -24,24 +24,29 @@ namespace DevShell.Cmdlets.Select
 
         protected override void BeginProcessing()
         {
+            //processesData.Columns.Add("#");
             processesData.Columns.Add("Image Name");
             processesData.Columns.Add("PID");
             processesData.Columns.Add("Session#");
             processesData.Columns.Add("Mem Usage");
 
-            var processes = Process.GetProcesses();
-            
+            var processes = Process.GetProcesses().ToList();            
+            int count = 0;
             foreach (var proces in processes)
             {
-
-                NewRow(processesData, proces.ProcessName, proces.Id, proces.SessionId, ConsoleHelper.SizeSuffix(proces.WorkingSet64));
-     
+                NewRow(processesData, /*count,*/ proces.ProcessName, proces.Id, proces.SessionId, ConsoleHelper.SizeSuffix(proces.WorkingSet64));
+                count++;
             }
+
+            processesData.DefaultView.Sort = "Image Name ASC";
+            processesData = processesData.DefaultView.ToTable();
         }
 
         protected override void ProcessRecord()
         {
             ConsoleTableSelect consoleTableSelect = new ConsoleTableSelect(processesData);
+            ConsoleHelper.Header("Select Process to Kill");
+
 
             var index = consoleTableSelect.GetSelection();
             if (index != -1)
@@ -50,8 +55,8 @@ namespace DevShell.Cmdlets.Select
 
                 var procesToKill = Process.GetProcesses().FirstOrDefault(p => p.Id == pid);
 
-                //if (procesToKill != null)
-                //    procesToKill.Kill();
+                if (procesToKill != null)
+                    procesToKill.Kill();
             }
         }
 
