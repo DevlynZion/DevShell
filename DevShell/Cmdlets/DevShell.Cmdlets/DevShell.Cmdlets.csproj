@@ -47,8 +47,10 @@
     <Compile Include="..\..\Shared\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Common\DSVariable.cs" />
     <Compile Include="DS\DSAddAlias.cs" />
     <Compile Include="DS\DSBoot.cs" />
+    <Compile Include="DS\DSSelect.cs" />
     <Compile Include="Output\WriteCenterText.cs" />
     <Compile Include="Output\WriteHeader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

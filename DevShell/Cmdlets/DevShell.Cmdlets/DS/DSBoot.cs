@@ -10,6 +10,7 @@ using Microsoft.PowerShell.Commands;
 using System.IO;
 using DevShell.Common.Utility;
 using System.Collections;
+using DevShell.Cmdlets.Common;
 
 namespace DevShell.Cmdlets.DS
 {
@@ -39,7 +40,7 @@ namespace DevShell.Cmdlets.DS
 
             ConsoleHelper.Header(APPLICATION_NAME, string.Format("version: {0}", version));
             
-            SessionState.PSVariable.Set("dsVersion", version);
+            SessionState.PSVariable.Set(new PSVariable(DSVariable.dsVersion, version, ScopedItemOptions.Private));
 
         }
 
@@ -65,7 +66,7 @@ namespace DevShell.Cmdlets.DS
                 WriteObject(commands);
             }
 
-            SessionState.PSVariable.Set("dsLoadedModules", dsLoadedModules);
+            SessionState.PSVariable.Set(new PSVariable(DSVariable.dsLoadedModules, dsLoadedModules, ScopedItemOptions.Private));
         }
 
         private void LoadScripts()
