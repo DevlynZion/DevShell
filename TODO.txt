@@ -4,7 +4,7 @@ Utilities - support functions to help automation
 
 Tasks
 =====
-* TaskList - Allow to select and kill processes
+* TaskList - Allow to select and kill processes [Done]
 
 
 
@@ -12,7 +12,10 @@ Reports - Give reports on things
 =======
 
 
-
+Deployment
+==========
+* How to deploy?
+ * For a DB link should do, or GitHub Forking
 
 
 Use Cases for Dev Shell
