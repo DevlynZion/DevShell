@@ -74,6 +74,7 @@ namespace DevShell.Cmdlets.DS
             {
                 var cmdletName = cmdletDataTable.Rows[selection]["Cmdlet"].ToString();
 
+                Console.WriteLine();
                 RunCmdlet(cmdletName);
                 Console.WriteLine();
                 HandleModules();
@@ -83,6 +84,11 @@ namespace DevShell.Cmdlets.DS
         private void RunCmdlet(string cmdletName)
         {
             // TODO: Implement 
+            var cmdlet = PsInvoker.Create(cmdletName);
+            //cmdlet.AddArgument("Name", DSVariable.dsLoadedModules);
+            //cmdlet.AddArgument("Value", dsLoadedModules);
+            //cmdlet.AddArgument("Scope", "Global");
+            WriteObject(cmdlet.Invoke());
         }
 
         private DataTable CreateModuleDataTable()
