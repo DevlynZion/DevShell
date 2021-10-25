@@ -33,13 +33,11 @@ namespace DevShell.Cmdlets.Test
             table.Draw();
         }
 
-        private void NewRow(DataTable dt, string c1, int c2, double c3, float c4)
+        private void NewRow(DataTable dt, params object[] cell)
         {
             var r1 = dt.NewRow();
-            r1[0] = c1;
-            r1[1] = c2;
-            r1[2] = c3;
-            r1[3] = c4;
+            for (int k = 0; k < dt.Columns.Count; k++)
+                r1[k] = cell[k];
             dt.Rows.Add(r1);
         }
     }    

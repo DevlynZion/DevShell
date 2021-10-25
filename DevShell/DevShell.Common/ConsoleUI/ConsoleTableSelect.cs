@@ -56,7 +56,7 @@ namespace DevShell.Common.ConsoleUI
             int bottomOffset = 0;
             ConsoleKeyInfo kb;
 
-            itemsPerPages = NumberOfRows;
+            itemsPerPages = data.Rows.Count < NumberOfRows ? data.Rows.Count : NumberOfRows;
             maxItemShift = Data.Rows.Count - itemsPerPages; // Not sure what the right Calculation is, but seems to be working
 
             Console.CursorVisible = false;

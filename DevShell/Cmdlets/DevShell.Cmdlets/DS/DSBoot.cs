@@ -40,7 +40,11 @@ namespace DevShell.Cmdlets.DS
 
             ConsoleHelper.Header(APPLICATION_NAME, string.Format("version: {0}", version));
             
-            SessionState.PSVariable.Set(new PSVariable(DSVariable.dsVersion, version, ScopedItemOptions.Private));
+            var newVariable = PsInvoker.Create("New-Variable");
+            newVariable.AddArgument("Name", DSVariable.dsVersion);
+            newVariable.AddArgument("Value", version);
+            newVariable.AddArgument("Scope", "Global");
+            newVariable.Invoke();
         }
 
         private void LoadModules()
@@ -65,7 +69,11 @@ namespace DevShell.Cmdlets.DS
                 WriteObject(commands);
             }
 
-            SessionState.PSVariable.Set(new PSVariable(DSVariable.dsLoadedModules, dsLoadedModules, ScopedItemOptions.AllScope)); //TODO: Only works on second run
+            var newVariable = PsInvoker.Create("New-Variable");
+            newVariable.AddArgument("Name", DSVariable.dsLoadedModules);
+            newVariable.AddArgument("Value", dsLoadedModules);
+            newVariable.AddArgument("Scope", "Global");
+            newVariable.Invoke();
         }
 
         private void LoadScripts()
