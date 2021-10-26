@@ -1,5 +1,6 @@
 ﻿using DevShell.Cmdlets.Common;
 using DevShell.Common.ConsoleUI;
+using DevShell.Common.Output;
 using DevShell.Common.Utility;
 using System;
 using System.Collections;
@@ -43,14 +44,11 @@ namespace DevShell.Cmdlets.DS
             modulesTable = CreateModuleDataTable();
 
             HandleModules();
-
-
-
-
         }
 
         private void HandleModules()
         {
+            ConsoleHelper.Header("Select Assembly");
             var modulesTableSelect = new ConsoleTableSelect(modulesTable);
             var selection = modulesTableSelect.GetSelection();
 
@@ -64,6 +62,7 @@ namespace DevShell.Cmdlets.DS
 
         private void HandleCmdlets(string module)
         {
+            ConsoleHelper.Header("Select Cmdlet");
             var cmdletDataTable = CreateCmdletDataTable(module);
             var cmdletTableSelect = new ConsoleTableSelect(cmdletDataTable);
             var selection = cmdletTableSelect.GetSelection();
@@ -84,6 +83,15 @@ namespace DevShell.Cmdlets.DS
         private void RunCmdlet(string cmdletName)
         {
             // TODO: Implement 
+            // https://devblogs.microsoft.com/scripting/use-the-get-command-powershell-cmdlet-to-find-parameter-set-information/
+            // Use to get the right parameter set
+
+
+            var getProcess = PsInvoker.Create("Get-Command");
+            getProcess.AddArgument("Name", cmdletName);
+            var parameters = getProcess.Invoke();
+
+
             var cmdlet = PsInvoker.Create(cmdletName);
             //cmdlet.AddArgument("Name", DSVariable.dsLoadedModules);
             //cmdlet.AddArgument("Value", dsLoadedModules);
