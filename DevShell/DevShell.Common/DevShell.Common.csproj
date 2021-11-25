@@ -55,6 +55,7 @@
     <Compile Include="ConsoleUI\ProgressMeter.cs" />
     <Compile Include="Output\ConsoleHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\KnownFolders.cs" />
     <Compile Include="Utility\PsInvoker.cs" />
   </ItemGroup>
   <ItemGroup>
